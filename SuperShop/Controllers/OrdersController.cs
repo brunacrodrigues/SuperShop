@@ -20,7 +20,7 @@ namespace SuperShop.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var model = await _orderRepository.GetOrdersAsync(this.User.Identity.Name);
+            var model = await _orderRepository.GetOrderAsync(this.User.Identity.Name);
             return View(model);
         }
 
@@ -88,6 +88,16 @@ namespace SuperShop.Controllers
 			return RedirectToAction("Create");
 
 		}
+
+        public async Task<IActionResult> ConfirmOrder()
+        {
+            var response = await _orderRepository.ConfirmOrderAsync(this.User.Identity.Name);
+            if (response)
+            {
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Create");
+        }
 
 	}
 }
