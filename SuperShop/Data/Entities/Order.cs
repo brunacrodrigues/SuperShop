@@ -13,16 +13,13 @@ namespace SuperShop.Data.Entities
 
         [Required]
         [Display(Name = "Order Date")]
-        // Corrected: Replaced [0: with {0:
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd hh:mm tt}", ApplyFormatInEditMode = false)]
         public DateTime OrderDate { get; set; }
 
 
-        [Required]
         [Display(Name = "Delivery Date")]
-        // Corrected: Replaced [0: with {0:
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd hh:mm tt}", ApplyFormatInEditMode = false)]
-        public DateTime DeliveryDate { get; set; }
+        public DateTime? DeliveryDate { get; set; }
 
 
         [Required]
@@ -30,7 +27,7 @@ namespace SuperShop.Data.Entities
 
         public IEnumerable<OrderDetail> Items { get; set; }
 
-        // Corrected: Added closing }
+        
         [DisplayFormat(DataFormatString = "{0:N0}")]
         public int Lines => Items == null ? 0 : Items.Count();
 
