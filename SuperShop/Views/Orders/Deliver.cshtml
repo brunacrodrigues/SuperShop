@@ -41,8 +41,8 @@
             var userLang = navigator.language || navigator.userLanguage;
             console.log(userLang);
             var options = $.extend({}, // empty object
-                $.datepicker.regional[pt-PT], {
-                dateFormat: "dd/mm/yyyy"
+                $.datepicker.regional[en-GB], {
+                dateFormat: "dd/MM/yyyy"
             } // your custom options
             );
             $(".date").datepicker(options);
